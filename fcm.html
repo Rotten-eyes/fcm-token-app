@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FCM Token</title>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-messaging.js"></script>
+</head>
+<body>
+  <script>
+    // Paste your Firebase config here
+    // Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyAmOaapNSfhNE86UBFVvZJCRS2bX83woy0",
+  authDomain: "demonotification-e046c.firebaseapp.com",
+  projectId: "demonotification-e046c",
+  storageBucket: "demonotification-e046c.firebasestorage.app",
+  messagingSenderId: "121837283815",
+  appId: "1:121837283815:web:0621e1ee7d26be28933542"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+    Notification.requestPermission().then(() => {
+      messaging.getToken({ vapidKey: "YOUR_VAPID_KEY" }).then((token) => {
+        if(token) {
+          document.write(token); // Kodular WebViewer will read this token text
+        } else {
+          document.write("No token");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
