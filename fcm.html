@@ -1,46 +1,7 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>FCM Token</title>
-  <!-- Firebase JS SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-messaging.js"></script>
-</head>
 <body>
-  <script>
-    // ==== REPLACE the following config object with YOUR Firebase project config ====
-    // You get this from Firebase Console → Project Settings → Your apps → SDK setup and config
-    const firebaseConfig = {
-      apiKey: "AIzaSyAmOaapNSfhNE86UBFVvZJCRS2bX83woy0",                    // Example: "AIzaSyA1b2C3D4E5F6G7H8I9J0"
-      authDomain: "demonotification-e046c.firebaseapp.com",  // Example: "myapp-12345.firebaseapp.com"
-      projectId: "demonotification-e046c",                    // Example: "myapp-12345"
-      storageBucket: "demonotification-e046c.appshot.com",    // Example: "myapp-12345.appspot.com"
-      messagingSenderId: "121837283815",   // Example: "123456789012"
-      appId: "1:121837283815:web:0621e1ee7d26be28933542"                             // Example: "1:123456789012:web:abcdef123456"
-    };
-
-    // Initialize Firebase app with your config
-    firebase.initializeApp(firebaseConfig);
-
-    // Get Firebase Messaging instance
-    const messaging = firebase.messaging();
-
-    // Request permission to send notifications
-    Notification.requestPermission().then(() => {
-      // Get the current registration token using your VAPID key
-      messaging.getToken({ vapidKey: "BIcAqRWivqskzSKkBvQUJf2lIeDFDIeH9OmU1G-EdS55ZpLLnIHk0KVcrdZzKckCipukNJThWDsdo1U38Brs-MU" }).then((currentToken) => {
-        if (currentToken) {
-          // Show the token on the page for Kodular WebViewer to read
-          document.body.innerText = currentToken;
-        } else {
-          document.body.innerText = 'No token available';
-        }
-      }).catch((err) => {
-        document.body.innerText = 'Error retrieving token: ' + err;
-      });
-    }).catch((err) => {
-      document.body.innerText = 'Notification permission denied: ' + err;
-    });
-  </script>
+  <h1>Firebase FCM Token Test</h1>
+  <p>If you see this, the page loaded!</p>
 </body>
 </html>
